@@ -1,10 +1,13 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
   <title>LLM & AI Agent 情报简报</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
 <body>
   <header>
@@ -33,7 +36,7 @@
   </main>
   <footer>
     <div class="footer-links">
-      <a href="/feed.xml">RSS</a> | <a href="/sitemap.xml">Sitemap</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a> | <a href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a>
     </div>
     <div class="footer-copy">
       &copy; {{ site.time | date: "%Y" }} LLM & AI Agent Briefing

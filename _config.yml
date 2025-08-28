@@ -1,7 +1,8 @@
 title: "LLM & AI Agent 情报简报"
 description: "每日聚合 LLM 与 AI Agent 领域最新资讯、论文、项目与观点"
-url: "https://pierrelzw.github.io/AI-News"
-timezone: Asia/Beijing
+url: "https://pierrelzw.github.io"
+baseurl: "/AI-News"
+timezone: Asia/Tokyo
 theme: minima
 plugins:
   - jekyll-feed

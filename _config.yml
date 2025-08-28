@@ -1,0 +1,15 @@
+
+---
+
+文件路径：_config.yml
+```yaml
+title: "LLM & AI Agent 情报简报"
+description: "每日聚合 LLM 与 AI Agent 领域最新资讯、论文、项目与观点"
+url: "https://pierrelzw.github.io/AI-News"
+timezone: Asia/Beijing
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+markdown: kramdown
+permalink: /:year/:month/:day/:title/

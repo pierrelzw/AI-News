@@ -1,0 +1,64 @@
+name: Daily Post
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 每天 00:00 UTC（09:00 JST）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Daily Briefing Markdown
+        run: |
+          TODAY=$(TZ=Asia/Tokyo date +%F)
+          FILE="_posts/${TODAY}-llm-agent-briefing.md"
+          if [ ! -f "$FILE" ]; then
+            cat <<EOF > "$FILE"
+---
+layout: post
+title: "LLM & AI Agent 情报简报（${TODAY}）"
+tags: [LLM, Agent, Briefing]
+---
+
+> 时间范围：最近 3 天｜最后更新：${TODAY} JST
+
+## Hacker News
+- 暂无更新。
+
+## arXiv
+- （在这里插入聚合后的论文条目）
+
+## Reddit
+- （在这里插入聚合后的讨论条目）
+
+## GitHub Trending
+- （在这里插入聚合后的项目条目）
+
+## Papers With Code
+- （在这里插入聚合后的论文+代码条目）
+
+## LessWrong / Alignment Forum
+- （在这里插入聚合后的观点条目）
+
+## Twitter / X
+- （在这里插入聚合后的研究者动态）
+
+## Medium / TDS
+- （在这里插入聚合后的工程实践文章）
+EOF
+          fi
+
+      - name: Commit & Push if Changed
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: add daily post ${TODAY}" || echo "No changes"
+          git push

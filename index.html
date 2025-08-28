@@ -1,261 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LLM & AI Agent 情报简报（最近 3 天）</title>
-  <style>
-    :root {
-      --bg: #0b0f17;
-      --card: #121826;
-      --text: #e6eefc;
-      --muted: #9fb3c8;
-      --accent: #7aa2f7;
-      --tag: #1e293b;
-      --border: #1f2937;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: linear-gradient(180deg, #0b0f17 0%, #0f172a 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    header {
-      padding: 32px 20px 10px;
-      text-align: center;
-    }
-    h1 {
-      margin: 0 0 6px 0;
-      font-size: 28px;
-      letter-spacing: 0.5px;
-    }
-    .sub {
-      color: var(--muted);
-      font-size: 14px;
-    }
-    main { max-width: 1000px; margin: 0 auto; padding: 12px 16px 80px; }
-    section { margin: 20px 0 18px; }
-    .card {
-      background: rgba(18, 24, 38, 0.8);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      margin: 12px 0;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-    h2 {
-      font-size: 18px;
-      margin: 0 0 6px 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .tag {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-      background: var(--tag);
-      border: 1px solid var(--border);
-      margin-left: 8px;
-    }
-    ul { margin: 8px 0 0 18px; }
-    li { margin: 8px 0; }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-    .muted { color: var(--muted); }
-    .empty { color: var(--muted); font-style: italic; }
-    footer {
-      max-width: 1000px; margin: 0 auto; padding: 20px 16px 60px;
-      color: var(--muted); font-size: 13px;
-    }
-    .src {
-      display: inline-block;
-      margin-left: 8px;
-      font-size: 12px;
-    }
-    .kicker {
-      font-weight: 600;
-      color: #cbd5e1;
-    }
-    .pill { padding: 2px 6px; border: 1px solid var(--border); border-radius: 8px; font-size: 11px; margin-left: 6px; }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-  </style>
+  <meta charset="UTF-8">
+  <title>LLM & AI Agent 情报简报</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header>
-    <h1>LLM &amp; AI Agent 情报简报</h1>
-    <div class="sub">时间范围：最近 3 天｜最后更新：2025-08-28 20:17 JST</div>
+    <h1>LLM & AI Agent 情报简报</h1>
+    <p class="subtitle">每日聚合 LLM 与 AI Agent 领域最新动态</p>
   </header>
   <main>
-
-    <!-- Hacker News -->
-    <section class="card">
-      <h2>Hacker News <span class="tag">高热度</span></h2>
-      <p class="empty">暂无更新。</p>
-      <div class="muted">提示：可随时在 <a href="https://hn.algolia.com/?q=LLM%20OR%20agent&sort=byPopularity&prefix=true&page=0&dateRange=last3days" target="_blank" rel="noopener">HN 搜索（最近 3 天）</a> 查看。</div>
-    </section>
-
-    <!-- arXiv -->
-    <section class="card">
-      <h2>arXiv <span class="tag">最新论文</span></h2>
-      <ul>
-        <li>
-          <div class="kicker">NVIDIA Jet-Nemotron: <span class="mono">"53× Faster Hybrid-Architecture Language Model Series"</span></div>
-          <div>提出混合注意力架构（含 JetBlock 动态稀疏注意力），在降低内存占用的同时显著提升推理吞吐。</div>
-          <div><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv 链接（首页）</a> <span class="pill">近 3 天</span></div>
-        </li>
-        <li>
-          <div class="kicker">Aegis: <span class="mono">"Taxonomy &amp; Optimizations for Overcoming Agent-Environment Failures in LLM Agents"</span></div>
-          <div>总结 LLM 代理在复杂环境中 6 类常见失败并给出无需改动模型的环境层优化策略，平均提升成功率。</div>
-          <div><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv 链接（首页）</a> <span class="pill">近 3 天</span></div>
-        </li>
-        <li>
-          <div class="kicker">ReST-RL: <span class="mono">"Accurate Code Reasoning via Optimized Self-Training &amp; Decoding"</span></div>
-          <div>提出基于改进 GRPO 与 VM‑MCTS 的训练+解码范式，显著提升代码推理类基准表现。</div>
-          <div><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv 链接（首页）</a> <span class="pill">近 3 天</span></div>
-        </li>
-      </ul>
-      <div class="muted">注：具体论文链接可在 <a href="https://arxiv.org/search/?searchtype=all&query=LLM+OR+%22AI+Agent%22&abstracts=show&order=-announced_date_first&size=50" target="_blank" rel="noopener">arXiv 搜索结果</a> 中定位。</div>
-    </section>
-
-    <!-- Reddit -->
-    <section class="card">
-      <h2>Reddit <span class="tag">高赞讨论</span></h2>
-      <ul>
-        <li>
-          <div class="kicker">/r/LocalLLaMA：Nous Hermes 4（70B 开源模型）</div>
-          <div>社区称其为“期待已久的开源力作”，并给出在线测试与论文链接。</div>
-          <div><a href="https://arxiv.org/abs/2508.18255" target="_blank" rel="noopener">arXiv 论文</a> · <a href="https://www.reddit.com/r/LocalLLaMA/search/?q=Nous%20Hermes%204&restrict_sr=1&sort=top&t=week" target="_blank" rel="noopener">Reddit 讨论（搜索）</a> <span class="pill">~403 👍</span></div>
-        </li>
-        <li>
-          <div class="kicker">/r/LocalLLaMA：Hugging Face 达到 200 万模型里程碑</div>
-          <div>反映开源 LLM 生态的快速增长与管理挑战。</div>
-          <div><a href="https://www.reddit.com/r/LocalLLaMA/search/?q=Hugging%20Face%202%20million%20models&restrict_sr=1&sort=top&t=week" target="_blank" rel="noopener">Reddit 讨论（搜索）</a> <span class="pill">~473 👍</span></div>
-        </li>
-        <li>
-          <div class="kicker">/r/ArtificialIntelligence：Agent Simulation 是否成为测试新范式？</div>
-          <div>主张以情景模拟对代理进行“上线前压力测试”，或成为未来代理开发的标配流程。</div>
-          <div><a href="https://www.reddit.com/r/ArtificialIntelligence/search/?q=Agent%20Simulation%20testing&restrict_sr=1&sort=top&t=week" target="_blank" rel="noopener">Reddit 讨论（搜索）</a> <span class="pill">高赞</span></div>
-        </li>
-      </ul>
-      <div class="muted">/r/MachineLearning：暂无更新。</div>
-    </section>
-
-    <!-- GitHub Trending -->
-    <section class="card">
-      <h2>GitHub Trending <span class="tag">热门项目</span></h2>
-      <ul>
-        <li>
-          <div class="kicker">verifiers — Verifiers for LLM Reinforcement Learning</div>
-          <div>为大模型强化学习引入“可验证器”，自动核验决策过程；近期登上趋势榜。</div>
-          <div><a href="https://github.com/search?q=verifiers+LLM+Reinforcement+Learning&type=repositories" target="_blank" rel="noopener">GitHub 搜索</a> <span class="pill">日趋势</span></div>
-        </li>
-        <li>
-          <div class="kicker">DeepCode — Open Agentic Coding</div>
-          <div>探索 LLM 自动编写代码与执行 Web/后端操作（Text2Web / Paper2Code 等）。</div>
-          <div><a href="https://github.com/search?q=DeepCode+%22Open+Agentic+Coding%22&type=repositories" target="_blank" rel="noopener">GitHub 搜索</a> <span class="pill">~4k ⭐</span></div>
-        </li>
-        <li>
-          <div class="kicker">mcp-context-forge — Model Context Protocol (MCP) Gateway</div>
-          <div>统一管理 LLM 工具与资源，自动将 REST API 封装为 MCP 接口，以增强可扩展性。</div>
-          <div><a href="https://github.com/IBM/mcp-context-forge" target="_blank" rel="noopener">GitHub 仓库</a> <span class="pill">活跃</span></div>
-        </li>
-        <li>
-          <div class="kicker">system_prompts_leaks — 聊天机器人隐藏 Prompt 合集</div>
-          <div>收集多个主流模型的系统提示词，对提示工程与模型行为研究有参考价值。</div>
-          <div><a href="https://github.com/search?q=system_prompts_leaks&type=repositories" target="_blank" rel="noopener">GitHub 搜索</a></div>
-        </li>
+    <section>
+      <h2>最近文章</h2>
+      <ul class="post-list">
+        {% for post in site.posts limit:30 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+            {% if post.tags %}
+              <span class="tags">
+                {% for tag in post.tags %}
+                  <span class="tag">{{ tag }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </li>
+        {% endfor %}
       </ul>
     </section>
-
-    <!-- Papers With Code -->
-    <section class="card">
-      <h2>Papers With Code <span class="tag">论文 + 代码</span></h2>
-      <ul>
-        <li>
-          <div class="kicker">Chain-of-Agents — End-to-End Agent Foundation Models</div>
-          <div>通过多智能体蒸馏与 Agent 强化学习，将协作过程整合进单一 LLM，实现端到端代理能力。</div>
-          <div><a href="https://paperswithcode.com/search?q_meta=&q=Chain-of-Agents" target="_blank" rel="noopener">Papers With Code（搜索）</a></div>
-        </li>
-        <li>
-          <div class="kicker">MeshCoder — LLM 生成结构化 3D 网格代码</div>
-          <div>将点云理解为可编辑的 Blender Python 脚本，支持 3D 程序化重建。</div>
-          <div><a href="https://paperswithcode.com/search?q_meta=&q=MeshCoder" target="_blank" rel="noopener">Papers With Code（搜索）</a></div>
-        </li>
-        <li>
-          <div class="kicker">LLaMA-Factory — 高效大模型微调框架</div>
-          <div>统一多模型的增量微调流程，内置可视化工具 LlamaBoard。</div>
-          <div><a href="https://paperswithcode.com/search?q_meta=&q=LLaMA-Factory" target="_blank" rel="noopener">Papers With Code（搜索）</a></div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- LessWrong / Alignment Forum -->
-    <section class="card">
-      <h2>LessWrong / Alignment Forum <span class="tag">观点</span></h2>
-      <ul>
-        <li>
-          <div class="kicker">Sleeping Machines: Why Our AI Agents Still Behave Like Talented Children</div>
-          <div>总结 7 种常见失败模式（如“奖赏黑客”），并展望记忆/不确定性/决策预算等改进方向。</div>
-          <div><a href="https://www.lesswrong.com/search?q=Sleeping+Machines" target="_blank" rel="noopener">LessWrong（搜索）</a></div>
-        </li>
-        <li>
-          <div class="kicker">The Future of AI Agents</div>
-          <div>从消费级“个人 AI 助手”切入的产品化设想，强调刚需场景与可衡量 ROI。</div>
-          <div><a href="https://www.lesswrong.com/search?q=The+Future+of+AI+Agents" target="_blank" rel="noopener">LessWrong（搜索）</a></div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Twitter / X -->
-    <section class="card">
-      <h2>Twitter / X <span class="tag">研究者动态</span></h2>
-      <ul>
-        <li>
-          <div class="kicker">Andrej Karpathy</div>
-          <div>强调“LLM 是新的计算平台 / Software 3.0”，提示词成为新型“源码”。</div>
-          <div><a href="https://x.com/karpathy" target="_blank" rel="noopener">个人主页</a></div>
-        </li>
-        <li>
-          <div class="kicker">Jim Fan</div>
-          <div>关注开源模型与多模态/机器人前沿，常评述 MoE 等方向的工程化进展。</div>
-          <div><a href="https://x.com/drjimfan" target="_blank" rel="noopener">个人主页</a></div>
-        </li>
-        <li>
-          <div class="kicker">Yann LeCun</div>
-          <div>强调 LLM 常识缺失，呼吁发展融合认知与推理的新架构。</div>
-          <div><a href="https://x.com/ylecun" target="_blank" rel="noopener">个人主页</a></div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Medium / TDS -->
-    <section class="card">
-      <h2>Medium / Towards Data Science <span class="tag">工程实践</span></h2>
-      <ul>
-        <li>
-          <div class="kicker">LLM as a Judge: The Future of AI Evaluations（2025-04-08）</div>
-          <div>介绍以“LLM 裁判”评估模型输出的方法论与实践要点，强调可扩展性与上下文理解。</div>
-          <div><a href="https://medium.com/search?q=LLM%20as%20a%20Judge%3A%20The%20Future%20of%20AI%20Evaluations" target="_blank" rel="noopener">Medium（搜索）</a></div>
-        </li>
-        <li>
-          <div class="kicker">大型 LLM 应用的全面验证</div>
-          <div>从离线评测到在线监控的端到端验证框架，面向千万级调用的稳定性保障。</div>
-          <div><a href="https://towardsdatascience.com/search?q=LLM%20evaluation" target="_blank" rel="noopener">TDS（搜索）</a></div>
-        </li>
-      </ul>
-    </section>
-
   </main>
   <footer>
-    <div>说明：本页根据“上一次深度检索”梳理而成；部分项目未提供确切链接时，给出对应站点的精准搜索链接，便于定位原始来源。</div>
+    <div class="footer-links">
+      <a href="/feed.xml">RSS</a> | <a href="/sitemap.xml">Sitemap</a>
+    </div>
+    <div class="footer-copy">
+      &copy; {{ site.time | date: "%Y" }} LLM & AI Agent Briefing
+    </div>
   </footer>
 </body>
 </html>

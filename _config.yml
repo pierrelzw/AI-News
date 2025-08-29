@@ -7,5 +7,16 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate-v2
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+
+# Pagination (jekyll-paginate-v2)
+pagination:
+  enabled: true
+  per_page: 20
+  permalink: '/page/:num/'
+  title: ':title - 第 :num 页'
+  sort_field: 'date'
+  sort_reverse: true

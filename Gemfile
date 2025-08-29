@@ -4,6 +4,8 @@ gem "jekyll", "~> 4.3.0"
 gem "minima", "~> 2.5"
 gem "jekyll-feed", "~> 0.12"
 gem "jekyll-sitemap"
+gem "jekyll-seo-tag"
+gem "jekyll-paginate-v2"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
@@ -21,3 +23,8 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # Add webrick for Ruby 3.0+
 gem "webrick", "~> 1.7"
+
+# For CI HTML validation
+group :development do
+  gem "html-proofer", "~> 5.0"
+end

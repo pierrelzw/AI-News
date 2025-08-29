@@ -23,7 +23,7 @@ jobs:
             cat <<EOF > "$FILE"
 ---
 layout: post
-title: "LLM & AI Agent 情报简报（${TODAY}）"
+title: "AI 情报简报（${TODAY}）"
 tags: [LLM, Agent, Briefing]
 ---
 

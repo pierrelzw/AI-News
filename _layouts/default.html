@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-  <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | default: 'LLM & AI Agent 情报简报' }}</title>
+  <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | default: 'AI 情报简报' }}</title>
   
   <!-- SEO Meta Tags -->
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
@@ -28,7 +28,7 @@
       <a href="{{ '/feed.xml' | relative_url }}">RSS</a> | <a href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a>
     </div>
     <div class="footer-copy">
-      &copy; {{ site.time | date: "%Y" }} {{ site.title | default: 'LLM & AI Agent Briefing' }}
+      &copy; {{ site.time | date: "%Y" }} {{ site.title | default: 'AI Briefing' }}
     </div>
   </footer>
 </body>

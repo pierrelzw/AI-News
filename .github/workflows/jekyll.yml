@@ -42,7 +42,7 @@ jobs:
             --assume-extension \
             --check-html \
             --allow-missing-href \
-            --url-ignore "/https:\/\/github.com\/trending/"
+            --ignore-urls "/https:\/\/github.com\/trending/"
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

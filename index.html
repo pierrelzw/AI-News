@@ -19,9 +19,16 @@ pagination:
       {% for post in posts %}
         <li>
           <a href="{{ post.url | relative_url }}">
-            {{ post.title | default: (post.path | split: '/' | last | replace: '.md','' | replace: '.markdown','') | escape }}
+            {% assign fallback_date = post.date | date: '%Y-%m-%d' %}
+            {% assign fallback_title = fallback_date | append: '-AI 简报' %}
+            {% assign norm_title = post.title | to_s | strip %}
+            {% if norm_title == '' or norm_title downcase == 'llm agent briefing' %}
+              {{ fallback_title }}
+            {% else %}
+              {{ post.title | escape }}
+            {% endif %}
           </a>
-          {% if post.tags %}
+          {% if post.tags and post.tags.size > 0 %}
             <span class="tags">
               {% for tag in post.tags %}
                 <span class="tag">{{ tag }}</span>

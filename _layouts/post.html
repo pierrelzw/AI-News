@@ -6,7 +6,8 @@ layout: default
 
   <header class="post-header">
     {% assign title_norm = page.title | to_s | strip | downcase %}
-    {% if title_norm == 'ai-briefing' or title_norm == 'ai briefing' %}
+    {% assign filename_norm = page.name | to_s | strip | downcase %}
+    {% if title_norm == 'ai-briefing' or title_norm == 'ai briefing' or filename_norm contains 'ai-briefing' %}
       <h1 class="post-title p-name" itemprop="name headline">每日 AI 简报</h1>
     {% else %}
       <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>

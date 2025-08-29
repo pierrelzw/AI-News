@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-  <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{% assign title_norm = page.title | to_s | strip | downcase %}{% assign filename_norm = page.name | to_s | strip | downcase %}{% if title_norm == 'ai-briefing' or title_norm == 'ai briefing' or filename_norm contains 'ai-briefing' %}每日 AI 简报{% else %}{{ page.title | escape }}{% endif %}{% else %}{{ site.title }}{% endif %}{% if page.title %} - {{ site.title }}{% endif %}</title>
   
   <!-- SEO Meta Tags -->
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
@@ -13,14 +13,14 @@
   {% endif %}
   
   <!-- Open Graph -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{% assign title_norm = page.title | to_s | strip | downcase %}{% assign filename_norm = page.name | to_s | strip | downcase %}{% if title_norm == 'ai-briefing' or title_norm == 'ai briefing' or filename_norm contains 'ai-briefing' %}每日 AI 简报{% else %}{{ page.title | escape }}{% endif %}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta name="theme-color" content="#2c5aa0">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:title" content="{% if page.title %}{% assign title_norm = page.title | to_s | strip | downcase %}{% assign filename_norm = page.name | to_s | strip | downcase %}{% if title_norm == 'ai-briefing' or title_norm == 'ai briefing' or filename_norm contains 'ai-briefing' %}每日 AI 简报{% else %}{{ page.title | escape }}{% endif %}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   {% if site.social_image %}
   <meta property="og:image" content="{{ site.social_image | absolute_url }}">

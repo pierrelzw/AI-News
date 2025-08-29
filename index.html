@@ -22,7 +22,8 @@ pagination:
             {% assign fallback_date = post.date | date: '%Y-%m-%d' %}
             {% assign fallback_title = fallback_date | append: '-AI 简报' %}
             {% assign norm_title = post.title | to_s | strip %}
-            {% if norm_title == '' or norm_title downcase == 'llm agent briefing' %}
+            {% assign norm_lower = norm_title | downcase %}
+            {% if norm_title == '' or norm_lower == 'ai-briefing' or norm_lower == 'ai briefing' %}
               {{ fallback_title }}
             {% else %}
               {{ post.title | escape }}

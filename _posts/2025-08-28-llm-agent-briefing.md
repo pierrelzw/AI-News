@@ -1,5 +1,3 @@
-# AI 简报 2025-08-21 → 2025-08-28
-
 ## Hacker News
 
 - **AI 工具需在贡献中披露**[news.ycombinator.com](https://news.ycombinator.com/item?id=44976568#:~:text=AI tooling must be disclosed,12)。HashiCorp 联合创始人 Mitchell Hashimoto 提交的提案要求开源项目贡献者披露是否使用了 AI 辅助工具生成代码，以便维护者决定审核力度[github.com](https://github.com/ghostty-org/ghostty/pull/8289#:~:text=I think%2C at this stage,common courtesy to disclose this)[github.com](https://github.com/ghostty-org/ghostty/pull/8289#:~:text=The disclosure is to help,trick me into doing so)。该提案已合并进 Ghostty 项目，引发热议，支持者认为 AI 生成代码存在潜在授权和质量风险，需要透明度[github.com](https://github.com/ghostty-org/ghostty/pull/8289#:~:text=478 LennyPenny%2C barscn%2C krono%2C ethanniser%2C,more reacted with heart emoji)。（HN积分: 724分，评论: 461条）

@@ -1,0 +1,37 @@
+---
+layout: default
+title: 归档
+permalink: /archives/
+---
+
+<section class="archives">
+  <h1>文章归档</h1>
+
+  {% assign groups = site.posts | group_by_exp: 'p', 'p.date | date: "%Y"' %}
+  {% assign groups = groups | sort: 'name' | reverse %}
+
+  {% for gy in groups %}
+    <h2>{{ gy.name }} 年</h2>
+    {% assign year_posts = gy.items %}
+    {% assign month_groups = year_posts | group_by_exp: 'p', 'p.date | date: "%Y-%m"' %}
+    {% assign month_groups = month_groups | sort: 'name' | reverse %}
+
+    {% for gm in month_groups %}
+      {% assign ym = gm.name %}
+      {% assign year = ym | slice: 0, 4 %}
+      {% assign month = ym | slice: 5, 2 %}
+      <h3>{{ year }} 年 {{ month }} 月</h3>
+      <ul>
+        {% assign posts_in_month = gm.items | sort: 'date' | reverse %}
+        {% for post in posts_in_month %}
+          <li>
+            <span>{{ post.date | date: '%Y-%m-%d' }}</span>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  {% endfor %}
+</section>
+
+

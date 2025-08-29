@@ -1,3 +1,5 @@
+require 'time'
+
 module Jekyll
   # 自动从文件内容提取元信息的插件
   class AutoMetaGenerator < Generator
@@ -9,39 +11,45 @@ module Jekyll
         filename = File.basename(post.path, '.md')
         content = post.content
         
-        Jekyll.logger.info "Auto Meta:", "正在处理 #{filename}"
-        Jekyll.logger.info "Auto Meta:", "原始标题: #{post.data['title'] || 'nil'}"
+        if ENV['JEKYLL_ENV'] != 'production'
+          Jekyll.logger.info "Auto Meta:", "正在处理 #{filename}"
+          Jekyll.logger.info "Auto Meta:", "原始标题: #{post.data['title'] || 'nil'}"
+        end
         
-        # 基础设置
-        post.data['layout'] = 'post'
-        post.data['categories'] = ['ai-briefing']
+        # 基础设置（仅在缺失时设置）
+        post.data['layout'] ||= 'post'
+        post.data['categories'] ||= ['ai-briefing']
         
         # 从文件名提取日期
         if filename.match(/^(\d{4}-\d{2}-\d{2})/)
-          post.data['date'] = Time.parse($1)
-          Jekyll.logger.info "Auto Meta:", "设置日期: #{post.data['date']}"
+          post.data['date'] ||= Time.parse($1)
+          Jekyll.logger.info "Auto Meta:", "设置日期: #{post.data['date']}" if ENV['JEKYLL_ENV'] != 'production'
         end
         
         # 从内容第一行提取标题
         title_match = content.match(/^#\s+(.+?)(?:\n|$)/)
-        if title_match
+        if title_match && (post.data['title'].nil? || post.data['title'].to_s.strip.empty?)
           extracted_title = title_match[1].strip
           post.data['title'] = extracted_title
-          Jekyll.logger.info "Auto Meta:", "提取标题: #{extracted_title}"
-        else
+          Jekyll.logger.info "Auto Meta:", "提取标题: #{extracted_title}" if ENV['JEKYLL_ENV'] != 'production'
+        elsif post.data['title'].nil? || post.data['title'].to_s.strip.empty?
           post.data['title'] = "AI 简报"
-          Jekyll.logger.info "Auto Meta:", "使用默认标题"
-        end        # 智能提取标签
-        tags = ['简报']
-        tags << 'LLM' if content.include?('LLM') || content.include?('大语言模型')
-        tags << 'AI-Agent' if content.include?('Agent') || content.include?('代理')
-        tags << 'Hacker-News' if content.include?('Hacker News')
-        tags << 'Reddit' if content.include?('Reddit')
-        tags << 'OpenAI' if content.include?('OpenAI')
-        tags << 'Anthropic' if content.include?('Claude') || content.include?('Anthropic')
+          Jekyll.logger.info "Auto Meta:", "使用默认标题" if ENV['JEKYLL_ENV'] != 'production'
+        end
+
+        # 智能提取标签（大小写不敏感，仅补充不覆盖）
+        tags = (post.data['tags'] || []).dup
+        normalized = content.downcase
+        tags << '简报'
+        tags << 'LLM' if normalized.include?('llm') || normalized.include?('大语言模型')
+        tags << 'AI-Agent' if normalized.include?('agent') || normalized.include?('代理')
+        tags << 'Hacker-News' if normalized.include?('hacker news')
+        tags << 'Reddit' if normalized.include?('reddit')
+        tags << 'OpenAI' if normalized.include?('openai')
+        tags << 'Anthropic' if normalized.include?('claude') || normalized.include?('anthropic')
         
         post.data['tags'] = tags.uniq
-        Jekyll.logger.info "Auto Meta:", "设置标签: #{tags}"
+        Jekyll.logger.info "Auto Meta:", "设置标签: #{tags}" if ENV['JEKYLL_ENV'] != 'production'
         
         # 智能生成摘要
         # 提取主要内容段落，跳过标题和链接
@@ -58,10 +66,10 @@ module Jekyll
           excerpt_text = excerpt_text.gsub(/\s\S*$/, '') + '...'
         end
         
-        post.data['excerpt'] = excerpt_text
-        Jekyll.logger.info "Auto Meta:", "生成摘要: #{excerpt_text[0..50]}..."
+        post.data['excerpt'] ||= excerpt_text
+        Jekyll.logger.info "Auto Meta:", "生成摘要: #{excerpt_text[0..50]}..." if ENV['JEKYLL_ENV'] != 'production'
         
-        Jekyll.logger.info "Auto Meta:", "完成处理 #{filename}"
+        Jekyll.logger.info "Auto Meta:", "完成处理 #{filename}" if ENV['JEKYLL_ENV'] != 'production'
       end
     end
   end

@@ -5,7 +5,12 @@ layout: default
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    {% assign title_norm = page.title | to_s | strip | downcase %}
+    {% if title_norm == 'ai-briefing' or title_norm == 'ai briefing' %}
+      <h1 class="post-title p-name" itemprop="name headline">每日 AI 简报</h1>
+    {% else %}
+      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    {% endif %}
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {%- assign date_format = site.minima.date_format | default: "%Y年%m月%d日" -%}

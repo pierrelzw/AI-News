@@ -34,12 +34,12 @@ module Jekyll
           Jekyll.logger.info "Auto Meta:", "提取标题: #{extracted_title}" if ENV['JEKYLL_ENV'] != 'production'
         end
 
-        # 规范化标题：若缺失或为占位（如 “ai-briefing”），设为“YYYY-MM-DD-AI 简报”
+        # 规范化标题：若缺失或为占位（如 “ai-briefing”），设为“每日 AI 简报”用于渲染，但 URL 仍按日期固定
         current_title = (post.data['title'] || '').to_s.strip
         placeholder = current_title.downcase
         if current_title.empty? || placeholder == 'ai-briefing'
           date_for_title = post.data['date'].is_a?(Time) ? post.data['date'] : Time.parse(filename[/^(\d{4}-\d{2}-\d{2})/, 1] || Time.now.strftime('%Y-%m-%d'))
-          post.data['title'] = date_for_title.strftime('%Y-%m-%d') + '-AI 简报'
+          post.data['title'] = '每日 AI 简报'
           Jekyll.logger.info "Auto Meta:", "规范标题: #{post.data['title']}" if ENV['JEKYLL_ENV'] != 'production'
         end
 

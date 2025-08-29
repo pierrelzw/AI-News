@@ -5,6 +5,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -29,9 +31,11 @@ h1 {
 }
 
 main {
-  max-width: 700px;
+  max-width: 1200px;
+  width: 90%;
   margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
+  flex: 1;
 }
 
 h2 {
@@ -47,7 +51,7 @@ h2 {
 }
 
 .post-list li {
-  padding: 1rem 0;
+  padding: 1.5rem 0; /* 增加垂直内边距 */
   border-bottom: 1px solid #23262f;
   display: flex;
   align-items: center;
@@ -59,7 +63,9 @@ h2 {
   color: #e3e6ed;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.1rem; /* 增加字体大小 */
   transition: color 0.2s;
+  flex: 1; /* 让链接占据更多空间 */
 }
 
 .post-list a:hover {
@@ -70,6 +76,7 @@ h2 {
   color: #b5b8c5;
   font-size: 0.95rem;
   margin-left: 1rem;
+  white-space: nowrap; /* 防止日期换行 */
 }
 
 .tags {
@@ -90,7 +97,7 @@ footer {
   padding: 2rem 1rem 1rem 1rem;
   background: #23262f;
   border-top: 1px solid #2c2f36;
-  margin-top: 3rem;
+  margin-top: auto;
 }
 
 .footer-links a {
@@ -108,6 +115,59 @@ footer {
   color: #b5b8c5;
   font-size: 0.95rem;
   margin-top: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  main {
+    max-width: 95%;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 95%;
+    padding: 0 1rem;
+  }
+  
+  .post-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0;
+  }
+  
+  .date, .tags {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    width: 98%;
+    padding: 0 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.1rem;
+  }
+  
+  header {
+    padding: 1.5rem 1rem;
+  }
 }
 
 @media (max-width: 600px) {

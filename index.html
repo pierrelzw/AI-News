@@ -29,13 +29,15 @@ pagination:
               {{ post.title | escape }}
             {% endif %}
           </a>
-          {% if post.tags and post.tags.size > 0 %}
-            <span class="tags">
+          <span class="tags">
+            {% if post.tags and post.tags.size > 0 %}
               {% for tag in post.tags %}
                 <span class="tag">{{ tag }}</span>
               {% endfor %}
-            </span>
-          {% endif %}
+            {% else %}
+              <span class="tag">简报</span>
+            {% endif %}
+          </span>
         </li>
       {% endfor %}
     </ul>

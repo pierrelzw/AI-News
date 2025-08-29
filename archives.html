@@ -36,6 +36,15 @@ permalink: /archives/
                 {{ post.title | escape }}
               {% endif %}
             </a>
+            {% if post.tags and post.tags.size > 0 %}
+              <span class="tags">
+                {% for tag in post.tags %}
+                  <span class="tag">{{ tag }}</span>
+                {% endfor %}
+              </span>
+            {% else %}
+              <span class="tags"><span class="tag">简报</span></span>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>

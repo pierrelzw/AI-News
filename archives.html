@@ -25,8 +25,8 @@ permalink: /archives/
         {% assign posts_in_month = gm.items | sort: 'date' | reverse %}
         {% for post in posts_in_month %}
           <li>
-            <span>{{ post.date | date: '%Y-%m-%d' }}</span>
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% assign filename = post.path | split: '/' | last | replace: '.md','' | replace: '.markdown','' %}
+            <a href="{{ post.url | relative_url }}">{{ filename }}</a>
           </li>
         {% endfor %}
       </ul>

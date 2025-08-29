@@ -49,19 +49,17 @@ layout: default
   <div class="nav-links">
     {%- if page.previous -%}
       <div class="nav-previous">
-        <a href="{{ page.previous.url | relative_url }}" rel="prev">
-          <span class="nav-subtitle">上一篇</span>
-          <span class="nav-title">{{ page.previous.title | escape }}</span>
-        </a>
+                  <a href="{{ page.previous.url | relative_url }}" rel="prev">
+            <span class="nav-subtitle">上一篇</span>
+          </a>
       </div>
     {%- endif -%}
     
     {%- if page.next -%}
       <div class="nav-next">
-        <a href="{{ page.next.url | relative_url }}" rel="next">
-          <span class="nav-subtitle">下一篇</span>
-          <span class="nav-title">{{ page.next.title | escape }}</span>
-        </a>
+                  <a href="{{ page.next.url | relative_url }}" rel="next">
+            <span class="nav-subtitle">下一篇</span>
+          </a>
       </div>
     {%- endif -%}
   </div>

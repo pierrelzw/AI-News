@@ -32,6 +32,26 @@
   {% seo %}
 </head>
 <body>
+  <!-- 顶部导航栏 -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="{{ '/' | relative_url }}" class="nav-brand">AI 情报简报</a>
+      </div>
+      <div class="nav-center">
+        <a href="{{ '/' | relative_url }}" class="nav-home">首页</a>
+      </div>
+      <div class="nav-right">
+        <button class="nav-search" onclick="toggleSearch()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
   <main>
     {{ content }}
   </main>
@@ -44,5 +64,12 @@
       &copy; {{ site.time | date: "%Y" }} {{ site.title }}
     </div>
   </footer>
+
+  <script>
+    function toggleSearch() {
+      // 暂时显示提示
+      alert('搜索功能开发中...');
+    }
+  </script>
 </body>
 </html>
